@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./hooks/useAuth";
 import { LoginPage } from "./pages/LoginPage";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
+import { SuppliersPage } from "./pages/suppliers/SuppliersPage";
 
 
 function HomePage() {
@@ -26,6 +27,14 @@ function App() {
         element={
           <ProtectedRoute>
             <HomePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/suppliers"
+        element={
+          <ProtectedRoute>
+            <SuppliersPage />
           </ProtectedRoute>
         }
       />
