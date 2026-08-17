@@ -1,5 +1,5 @@
 // src/pages/suppliers/SuppliersPage.tsx
-import { useSuppliers } from '../../hooks/useSuppliers';
+import { useSuppliers } from '../hooks/useSuppliers';
 
 export function SuppliersPage() {
   const { data: suppliers, isLoading, error } = useSuppliers();
