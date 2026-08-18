@@ -6,8 +6,10 @@ import type {
   ChangeOrderStatusDto,
 } from '../types/purchaseOrder';
 
-export async function getPurchaseOrders(): Promise<PurchaseOrder[]> {
-  const response = await apiClient.get<PurchaseOrder[]>('/purchaseorders');
+export async function getPurchaseOrders(currentUserId: number): Promise<PurchaseOrder[]> {
+  const response = await apiClient.get<PurchaseOrder[]>('/purchaseorders', {
+    params: { currentUserId },
+  });
   return response.data;
 }
 

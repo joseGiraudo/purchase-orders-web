@@ -20,6 +20,7 @@ export interface PurchaseOrder {
   totalAmount: number;
   rejectionReason?: string;
   items: OrderItem[];
+  statusHistory: StatusHistoryEntry[];
 }
 
 export interface CreateOrderItemDto {
@@ -36,5 +37,13 @@ export interface CreatePurchaseOrderDto {
 export interface ChangeOrderStatusDto {
   newStatus: OrderStatus;
   changedByUserId: number;
+  comment?: string;
+}
+
+export interface StatusHistoryEntry {
+  previousStatus: OrderStatus;
+  newStatus: OrderStatus;
+  changedByName: string;
+  changedAt: string;
   comment?: string;
 }

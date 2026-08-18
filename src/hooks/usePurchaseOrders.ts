@@ -10,11 +10,16 @@ import type {
   CreatePurchaseOrderDto,
   ChangeOrderStatusDto,
 } from '../types/purchaseOrder';
+import { useAuth } from './useAuth';
 
 export function usePurchaseOrders() {
+
+  const { user } = useAuth();
+
   return useQuery({
-    queryKey: ['purchase-orders'],
-    queryFn: getPurchaseOrders,
+    queryKey: ['purchase-orders', { currentUserId: user?.id }],
+    queryFn: () => getPurchaseOrders(user!.id),
+    enabled: !!user,
   });
 }
 

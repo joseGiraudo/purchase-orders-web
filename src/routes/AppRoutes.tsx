@@ -7,7 +7,9 @@ import { DashboardPage } from '../pages/DashboardPage';
 import { SuppliersPage } from '../pages/SuppliersPage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { UsersPage } from '../pages/UsersPage';
-import { PurchaseOrdersPage } from '../pages/PurchaseOrdersPage';
+import { PurchaseOrdersPage } from '../pages/purchase-orders/PurchaseOrdersPage';
+import { CreatePurchaseOrderPage } from '../pages/purchase-orders/CreatePurchaseOrderPage';
+import { PurchaseOrderDetailPage } from '../pages/purchase-orders/PurchaseOrderDetailPage';
 
 export function AppRoutes() {
   return (
@@ -48,6 +50,10 @@ export function AppRoutes() {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/purchase-orders" element={<PurchaseOrdersPage />} />
+        <Route path="/purchase-orders/new" element={<CreatePurchaseOrderPage />} />
+        <Route path="/purchase-orders/:id" element={<PurchaseOrderDetailPage />} />
       </Route>
     </Routes>
   );
